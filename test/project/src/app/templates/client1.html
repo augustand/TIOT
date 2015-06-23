@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <script src="/static/jquery-1.11.0.min.js"></script>
+    <script src="/static/sockjs-0.3.min.js"></script>
+    <script type="text/javascript" src="/static/ichart.1.2.js"></script>
+    <script src="/static/index.js"></script>
+    <link href="/static/mycss.css" rel="stylesheet" type="text/css"/>
+
+    <meta charset="UTF-8"/>
+    <title>Sock chat</title>
+</head>
+<body>
+<textarea id="chat-content" style="width:500px;height:300px"></textarea><br/>
+<input type="text" name="" value="" id="username" placeholder="Choose username"/>
+<input type="text" id="message" name="" value="" placeholder="Enter chat message"/>
+<input type="button" name="" value="Send" onclick="sendMessage()"/>
+
+
+<!--<input type="button" name="" id='id1' value="id1" onclick=id1()/>
+<input type="button" name="" id='id2' value="id2" onclick=id2()/>
+<input type="button" name="" id='id3' value="id3" onclick=id3()/>
+<input type="button" name="" id='id0' value="id0" onclick=id0()/>-->
+
+
+<!-- Table goes in the document BODY -->
+<table id="data_table" class="hovertable">
+    <tr>
+        <th>设备id</th>
+        <th>温度</th>
+        <th>湿度</th>
+	<th>num</th>
+    </tr>
+</table>
+
+<!--<button id="show" onclick="show()">展示画面</button>-->
+<div id='canvasDiv'></div>
+
+
+
+<h2 class="nav" id="nav"> 
+       <span class="nav_on">菜单一</span> 
+       <span>菜单二</span>
+       <span>菜单三</span> 
+       <span>菜单四</span> 
+       <span>菜单五</span> 
+</h2> 
+<div class="box_on">菜单一内容</div> 
+<div>菜单二内容</div> 
+<div>菜单三内容</div> 
+<div>菜单四内容</div> 
+<div>菜单五内容</div>
+
+
+
+<style tpe="text/css">
+body,h2,span,div{
+               padding:0;margin:0;
+        }
+.nav{
+               width:500px;height:50px;
+        }
+.nav span{
+               float:left;width:90px;height:40px;
+               border:5px #eee solid;
+               background-color:#cde;
+               text-align:center;
+               line-height:40px;
+               font-size:16px;
+               cursor:pointer;
+        }
+.nav .nav_on{
+               background-color:#ecd;color:#fff;
+        }
+div{
+              width:480px;height:280px;
+              border:10px #ade solid;
+              display:none;
+        }
+.box_on{
+              display:block;
+        }
+</style>
+
+
+
+<script type="text/javascript">
+  var nav = document.getElementById('nav').getElementsByTagName('span');//获取导航
+var box = document.getElementsByTagName('div');//获取模块
+for (var i = 0;i <= nav.length-1;i++ ){
+nav[i].onmouseover = function(){ //鼠标悬浮事件
+for (var i = 0;i <= nav.length-1;i++ ){
+if (nav[i] == this){
+nav[i].className = 'nav_on';
+box[i].style.display = 'block';
+}else{
+nav[i].className = '';
+box[i].style.display = 'none';
+}
+}
+}
+}
+</script>
+
+
+</body>
+</html>
